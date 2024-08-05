@@ -1,0 +1,8 @@
+{{!-- Step 1: Create the Azure Resource Graph query to list all resources in eastus --}}
+{{set "query" (SemanticPlugin-resource_graph_query_creator input="list all resources in eastus")}}
+
+{{!-- Step 2: Execute the Azure Resource Graph query --}}
+{{set "resourcesList" (AzureResourceInformationQuery-ExecuteAzureResourceGraphQuery resource_graph_query=query)}}
+
+{{!-- Step 3: Output the result --}}
+{{json resourcesList}}
